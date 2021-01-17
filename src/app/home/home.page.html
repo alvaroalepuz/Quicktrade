@@ -13,12 +13,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-input placeholder="Nombre"></ion-input>
-  <ion-input placeholder="Descripción"></ion-input>
-<ion-input placeholder="Precio" [type]="tipo"></ion-input>
-
+  <ion-input placeholder="Nombre"[(ngModel)]="nombre"></ion-input>
+  <ion-input placeholder="Descripción"[(ngModel)]="descripcion"></ion-input>
+<ion-input placeholder="Precio" [type]="tipo"[(ngModel)]="precio"></ion-input>
 <ion-item>
-  <ion-label>Categoría</ion-label>
+  <ion-label>{{cat}}</ion-label>
   <ion-select [(ngModel)]="categoria">
     <ion-select-option value="motor">Motor</ion-select-option>
     <ion-select-option value="tecnologia">Tecnología</ion-select-option>
@@ -26,6 +25,7 @@
     <ion-select-option value="hogar">Hogar</ion-select-option>
   </ion-select>
 </ion-item>
+
 <!------Motor----->
 <ion-content *ngIf = "categoria=='motor'">
   <ion-item>
@@ -38,6 +38,7 @@
 <ion-input placeholder="Km" type="number"></ion-input>
 <ion-input placeholder="Año" type="number"></ion-input>
 </ion-content>
+
 <!------Inmobiliaria----->
 <ion-content *ngIf = "categoria=='inmobiliaria'">
 <ion-input placeholder="m2" type="number"></ion-input>
@@ -45,6 +46,7 @@
 <ion-input placeholder="Nº Habitaciones" type="number"></ion-input>
 <ion-input placeholder="Localidad"></ion-input>
 </ion-content>
+
 <!------Tecnologia----->
 <ion-content *ngIf = "categoria=='tecnologia'">
   <ion-item>
@@ -55,5 +57,17 @@
     </ion-select>
   </ion-item>
 </ion-content>
+
+<ion-card *ngFor="let item of productos">
+  <ion-card-header>
+    <ion-card-title>Producto {{item.nombre}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+
+  </ion-card-content>
+</ion-card>
+
+
+
 
 </ion-content>
