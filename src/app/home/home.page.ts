@@ -7,24 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-cat : string = "Categoria";
-tipo : string="number";
-ocultarTecno : boolean = false;
-ocultarMotor : boolean = false;
-ocultarInmobiliaria : boolean = false;
+  cat: string = "Categoria";
+  tipo: string = "number";
+  categoria: string='categoria';
+  constructor() { }
 
-  constructor() {}
-
-cambiar_oculto(){
-
-  this.ocultarInmobiliaria=!this.ocultarInmobiliaria;
-}
-cambiar_oculto2(){
-  this.ocultarMotor=!this.ocultarMotor;
-}
-cambiar_oculto3(){
-  this.ocultarTecno=!this.ocultarTecno;
-}
+ 
 
 
 }
