@@ -1,0 +1,100 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Quicktrade
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Quicktrade</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-input placeholder="Nombre"></ion-input>
+  <ion-input placeholder="Descripción"></ion-input>
+<ion-input placeholder="Precio" [type]="tipo"></ion-input>
+
+<ion-list>
+  <ion-radio-group value="categoria">
+    <ion-list-header>
+      <ion-label>{{cat}}</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Tecnología</ion-label>
+      <ion-radio slot="start" (ionFocus)="cambiar_oculto3()"(ionBlur)="cambiar_oculto3()" value="Tecnología" ></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Motor</ion-label>
+      <ion-radio (ionFocus)="cambiar_oculto2()" (ionBlur)="cambiar_oculto2()" slot="start" value="Motor"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Inmobiliaria</ion-label>
+      <ion-radio slot="start" (ionFocus)="cambiar_oculto()"(ionBlur)="cambiar_oculto()" value="Inmobiliaria"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Hogar</ion-label>
+      <ion-radio slot="start"value="Hogar"></ion-radio>
+    </ion-item>
+
+  </ion-radio-group>
+</ion-list>
+<!------Motor----->
+<ion-content *ngIf = "ocultarMotor==true">
+<ion-list>
+  <ion-radio-group value="Motor">
+    <ion-list-header>
+      <ion-label>Tipo</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Coche</ion-label>
+      <ion-radio slot="start" value="Coche"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Moto</ion-label>
+      <ion-radio slot="start" value="Moto"></ion-radio>
+    </ion-item>
+
+  </ion-radio-group>
+</ion-list>
+<ion-input placeholder="Km" type="number"></ion-input>
+<ion-input placeholder="Año" type="number"></ion-input>
+</ion-content>
+<!------Inmobiliaria----->
+<ion-content *ngIf = "ocultarInmobiliaria==true">
+<ion-input placeholder="m2" type="number"></ion-input>
+<ion-input placeholder="Nº Baños" type="number"></ion-input>
+<ion-input placeholder="Nº Habitaciones" type="number"></ion-input>
+<ion-input placeholder="Localidad"></ion-input>
+</ion-content>
+<!------Tecnologia----->
+<ion-content *ngIf = "ocultarTecno==true">
+<ion-list>
+  <ion-radio-group value="Estado">
+    <ion-list-header>
+      <ion-label>Estado</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Perfecto estado</ion-label>
+      <ion-radio slot="start" value="Perfecto"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Usado</ion-label>
+      <ion-radio slot="start" value="Usado"></ion-radio>
+    </ion-item>
+
+  </ion-radio-group>
+</ion-list>
+</ion-content>
+
+</ion-content>
