@@ -23,3 +23,10 @@ export interface IInmobiliaria extends IProducto{
 export interface ITecnologia extends IProducto{
     "estado":string,
 }
+
+export interface IMegusta{
+    "id":number,
+    "nombreP":string,
+    "nombreusuario":string
+
+}

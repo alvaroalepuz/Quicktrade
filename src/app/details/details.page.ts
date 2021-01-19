@@ -16,16 +16,6 @@ export class DetailsPage implements OnInit {
   precio: number;
   categoria: string;
 
-  tipos: string;
-  km: number;
-  anyo: number;
-
-  m2: number;
-  nbanyos: number;
-  nhabitaciones: number;
-  localidad: string;
-
-  estado: string;
 
   constructor(private _activatedRoute: ActivatedRoute, private _productoservice: ProductoService) { }
 
