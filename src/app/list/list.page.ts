@@ -12,15 +12,32 @@ import { IProducto, IMotor, IInmobiliaria, ITecnologia } from '../Interfaces';
 export class ListPage implements OnInit {
 
 
-  productos: (IProducto | IInmobiliaria | IMotor | ITecnologia)[];
+  
+productos: (IProducto | IInmobiliaria | IMotor | ITecnologia)[];
+  id: number;
+  nombre: string;
+  descripcion: string;
+  precio: number;
+  categoria: string;
 
 
   constructor(private _activatedRoute: ActivatedRoute, private _productoservice: ProductoService) {
   }
 
   ngOnInit() {
-    this.productos = this._productoservice.getProductos();
-    
-  }
+    let ref = this._productoservice.getProductos();
+    ref.once("value", snapshot => {
+      snapshot.forEach(child => {
+        this.nombre = child.val().nombre;
 
+      })
+    })
+    this.productos.push({
+      "id": this.productos.length + 1,
+      "nombre": this.nombre,
+      "descripcion": this.descripcion,
+      "precio": this.precio,
+      "categoria": this.categoria,
+    })
+  }
 }
