@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductoService } from '../services/producto.service';
+import { IProducto, IMotor, IInmobiliaria, ITecnologia } from '../Interfaces';
+
 
 @Component({
   selector: 'app-list',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPage implements OnInit {
 
-  constructor() { }
+
+  productos: (IProducto | IInmobiliaria | IMotor | ITecnologia)[];
+
+
+  constructor(private _activatedRoute: ActivatedRoute, private _productoservice: ProductoService) {
+  }
 
   ngOnInit() {
+    this.productos = this._productoservice.getProductos();
+    
   }
 
 }
